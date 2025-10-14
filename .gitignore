@@ -1,0 +1,12 @@
+# Ambiente Virtual do Python
+venv/
+
+# Arquivos de cache do Python
+__pycache__/
+*.pyc
+
+# Arquivos de dados (não devem ir para o GitHub)
+*.csv
+
+# Arquivos de log e configuração local
+ultimo_processado.txt
