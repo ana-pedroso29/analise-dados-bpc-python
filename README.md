@@ -2,53 +2,44 @@
 
 ## 📖 Sobre o Projeto
 
-Este projeto é uma plataforma de análise de dados desenvolvida em Python para extrair, tratar, analisar e visualizar os dados públicos do Benefício de Prestação Continuada (BPC) do Portal da Transparência do Brasil.
+Este projeto é uma plataforma de análise de dados desenvolvida em Python para extrair, tratar, analisar e visualizar os dados públicos do Benefício de Prestação Continuada (BPC).
 
-O objetivo principal é automatizar a coleta de dados mensais e utilizar técnicas de Machine Learning (Isolation Forest) para identificar municípios com padrões de pagamento atípicos ou inconsistentes, servindo como uma ferramenta de apoio para gestores e pesquisadores.
+O sistema utiliza um pipeline de dados automatizado para carregar os dados históricos e incrementais do Portal da Transparência diretamente em um banco de dados **PostgreSQL**. O dashboard interativo, construído com **Streamlit**, consome esses dados para permitir análises temporais e geográficas, incluindo a detecção de outliers com **Scikit-learn** e a contagem de beneficiários únicos.
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Python:** Linguagem principal do projeto.
-- **Pandas:** Para manipulação e tratamento dos dados.
-- **Scikit-learn:** Para a aplicação do modelo de detecção de outliers (Isolation Forest).
-- **Streamlit:** Para a construção do dashboard web interativo.
-- **Plotly Express:** Para a criação dos gráficos.
-- **Requests:** Para realizar o download dos dados da web.
+-   **Linguagem:** Python
+-   **Banco de Dados:** PostgreSQL
+-   **Conexão DB:** SQLAlchemy, Psycopg2
+-   **Processamento de Dados:** Pandas
+-   **Machine Learning:** Scikit-learn (Isolation Forest)
+-   **Dashboard:** Streamlit
+-   **Gráficos:** Plotly Express
 
-## ⚙️ Como Executar
+---
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
-    cd SEU-REPOSITORIO
-    ```
+## ⚙️ Pré-requisitos (Configuração Obrigatória)
 
-2.  **Crie e ative o ambiente virtual:**
-    ```bash
-    python -m venv venv
-    venv\Scripts\activate
-    ```
+Antes de executar, você precisa ter o **PostgreSQL** instalado e rodando.
 
-3.  **Instale as dependências:**
-    (Crie um arquivo `requirements.txt` e adicione o nome das bibliotecas, uma por linha)
-    ```bash
-    pip install -r requirements.txt
-    ```
+1.  [Baixe e instale o PostgreSQL](https://www.postgresql.org/download/windows/).
+2.  Durante a instalação, defina uma senha para o superusuário `postgres`.
+3.  Abra o **pgAdmin 4** (ferramenta que vem com o PostgreSQL) e crie um novo banco de dados vazio chamado **`bpc_db`** com a codificação **`UTF8`**.
 
-4.  **Execute o pipeline de dados:**
-    (Este comando irá baixar e processar todos os dados históricos)
-    ```bash
-    python run_pipeline.py
-    ```
+---
 
-5.  **Inicie o dashboard:**
-    ```bash
-    streamlit run app.py
-    ```
+## 🏃 Como Executar o Projeto
 
-## ✨ Funcionalidades
+### 1. Preparação do Ambiente
 
-- Pipeline automatizado para carga histórica e atualizações mensais.
-- Dashboard interativo com filtros por ano, mês e estado.
-- Análise comparativa de gastos entre diferentes localidades e períodos.
-- Detecção de anomalias com Machine Learning.
+```bash
+# Clone este repositório
+git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
+cd SEU-REPOSITORIO
+
+# Crie e ative o ambiente virtual
+python -m venv venv
+venv\Scripts\activate
+
+# Instale todas as dependências
+pip install -r requirements.txt
